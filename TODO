@@ -1,0 +1,47 @@
+Cells:
+INV
+BUF
+AND (2,3, 4)
+OR (2, 3, 4)
+NAND (2, 3, 4)
+NOR (2, 3, 4)
+AOI21
+OAI21
+AOI22
+OAI22
+DFF (this seems like it will take the longest, potentially)
+
+Prelayout simulation:
+INV
+BUF
+AND (2,3, 4)
+OR (2, 3, 4)
+NAND (2, 3, 4)
+NOR (2, 3, 4)
+AOI21
+OAI21
+AOI22
+OAI22
+DFF (this seems like it will take the longest, potentially)
+
+Post layout simulation:
+INV
+BUF
+AND (2,3, 4)
+OR (2, 3, 4)
+NAND (2, 3, 4)
+NOR (2, 3, 4)
+AOI21
+OAI21
+AOI22
+OAI22
+DFF (this seems like it will take the longest, potentially)
+
+Documentation:
+Discussion of each cell
+issues with creating each cell
+discussion of the library
+issues not covered by the library (antennae effects)
+background information
+
+Presentation:
