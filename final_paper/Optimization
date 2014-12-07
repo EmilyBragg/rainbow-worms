@@ -1,0 +1,10 @@
+A) Steps to improve performance for individual cells
+1) Reducing resistance on contacts where possible
+2) Inverter sized to match the rest of the cell, where possible. 
+3) Balanced transistors when there is more complicated logic
+4) Comparisons of cell area and timing
+
+B) Using our designs to optimize full designs
+1) choosing which type of cell
+2) routing in the layer with less cell area
+
