@@ -1,0 +1,32 @@
+* File: OAI21_3D.pex.netlist
+* Created: Sat Dec  6 15:02:03 2014
+* Program "Calibre xRC"
+* Version "v2011.2_34.26"
+* 
+.include "OAI21_3D.pex.netlist.pex"
+.subckt OAI21_3D  IN1 GND! IN2 OUT VDD! IN3
+* 
+* IN3	IN3
+* VDD!	VDD!
+* OUT	OUT
+* IN2	IN2
+* GND!	GND!
+* IN1	IN1
+MM5 N_NET17_MM5_d N_IN1_MM5_g N_GND!_MM5_s N_GND!_MM5_b NMOS_VTL L=5e-08
++ W=2.4e-07 AD=2.52e-14 AS=3.36e-14 PD=6.9e-07 PS=7.6e-07
+MM2 N_NET17_MM2_d N_IN2_MM2_g N_GND!_MM5_s N_GND!_MM5_b NMOS_VTL L=5e-08
++ W=2.4e-07 AD=3.36e-14 AS=3.36e-14 PD=7.6e-07 PS=7.6e-07
+MM0 N_OUT_MM0_d N_IN3_MM0_g N_NET17_MM2_d N_GND!_MM5_b NMOS_VTL L=5e-08
++ W=2.4e-07 AD=2.52e-14 AS=3.36e-14 PD=6.9e-07 PS=7.6e-07
+MM3 NET16 N_IN1_MM3_g N_VDD!_MM3_s N_VDD!_MM3_b PMOS_VTL L=5e-08 W=4.8e-07
++ AD=6.72e-14 AS=5.04e-14 PD=1.24e-06 PS=1.17e-06
+MM4 N_OUT_MM4_d N_IN2_MM4_g NET16 N_VDD!_MM3_b PMOS_VTL L=5e-08 W=4.8e-07
++ AD=5.1e-14 AS=6.72e-14 PD=1.24e-06 PS=1.24e-06
+MM1 N_OUT_MM4_d N_IN3_MM1_g N_VDD!_MM1_s N_VDD!_MM3_b PMOS_VTL L=5e-08 W=2.4e-07
++ AD=5.1e-14 AS=2.52e-14 PD=1.24e-06 PS=6.9e-07
+*
+.include "OAI21_3D.pex.netlist.OAI21_3D.pxi"
+*
+.ends
+*
+*

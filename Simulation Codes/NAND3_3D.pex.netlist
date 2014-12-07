@@ -1,0 +1,32 @@
+* File: NAND3_3D.pex.netlist
+* Created: Sat Dec  6 14:28:08 2014
+* Program "Calibre xRC"
+* Version "v2011.2_34.26"
+* 
+.include "NAND3_3D.pex.netlist.pex"
+.subckt NAND3_3D  IN1 GND! IN2 IN3 VDD! OUT
+* 
+* OUT	OUT
+* VDD!	VDD!
+* IN3	IN3
+* IN2	IN2
+* GND!	GND!
+* IN1	IN1
+MM0 NET13 N_IN1_MM0_g N_GND!_MM0_s N_GND!_MM0_b NMOS_VTL L=5e-08 W=3.6e-07
++ AD=5.04e-14 AS=3.78e-14 PD=1e-06 PS=9.3e-07
+MM2 NET025 N_IN2_MM2_g NET13 N_GND!_MM0_b NMOS_VTL L=5e-08 W=3.6e-07 AD=5.04e-14
++ AS=5.04e-14 PD=1e-06 PS=1e-06
+MM5 N_OUT_MM5_d N_IN3_MM5_g NET025 N_GND!_MM0_b NMOS_VTL L=5e-08 W=3.6e-07
++ AD=3.78e-14 AS=5.04e-14 PD=9.3e-07 PS=1e-06
+MM3 N_OUT_MM3_d N_IN1_MM3_g N_VDD!_MM3_s N_VDD!_MM3_b PMOS_VTL L=5e-08 W=2.4e-07
++ AD=2.52e-14 AS=3.36e-14 PD=6.9e-07 PS=7.6e-07
+MM1 N_OUT_MM1_d N_IN2_MM1_g N_VDD!_MM3_s N_VDD!_MM3_b PMOS_VTL L=5e-08 W=2.4e-07
++ AD=3.36e-14 AS=3.36e-14 PD=7.6e-07 PS=7.6e-07
+MM4 N_OUT_MM1_d N_IN3_MM4_g N_VDD!_MM4_s N_VDD!_MM3_b PMOS_VTL L=5e-08 W=2.4e-07
++ AD=3.36e-14 AS=2.52e-14 PD=7.6e-07 PS=6.9e-07
+*
+.include "NAND3_3D.pex.netlist.NAND3_3D.pxi"
+*
+.ends
+*
+*

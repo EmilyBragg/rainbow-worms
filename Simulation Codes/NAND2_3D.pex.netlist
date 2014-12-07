@@ -1,0 +1,27 @@
+* File: NAND2_3D.pex.netlist
+* Created: Sat Dec  6 12:37:57 2014
+* Program "Calibre xRC"
+* Version "v2011.2_34.26"
+* 
+.include "NAND2_3D.pex.netlist.pex"
+.subckt NAND2_3D  GND! IN1 VDD! OUT IN2
+* 
+* IN2	IN2
+* OUT	OUT
+* VDD!	VDD!
+* IN1	IN1
+* GND!	GND!
+MM0 NET046 N_IN1_MM0_g N_GND!_MM0_s N_GND!_MM0_b NMOS_VTL L=5e-08 W=2.4e-07
++ AD=3.36e-14 AS=2.52e-14 PD=7.6e-07 PS=6.9e-07
+MM2 N_OUT_MM2_d N_IN2_MM2_g NET046 N_GND!_MM0_b NMOS_VTL L=5e-08 W=2.4e-07
++ AD=2.52e-14 AS=3.36e-14 PD=6.9e-07 PS=7.6e-07
+MM3 N_OUT_MM3_d N_IN1_MM3_g N_VDD!_MM3_s N_VDD!_MM3_b PMOS_VTL L=5e-08 W=2.4e-07
++ AD=2.52e-14 AS=3.36e-14 PD=6.9e-07 PS=7.6e-07
+MM1 N_OUT_MM1_d N_IN2_MM1_g N_VDD!_MM3_s N_VDD!_MM3_b PMOS_VTL L=5e-08 W=2.4e-07
++ AD=2.88e-14 AS=3.36e-14 PD=7.2e-07 PS=7.6e-07
+*
+.include "NAND2_3D.pex.netlist.NAND2_3D.pxi"
+*
+.ends
+*
+*
