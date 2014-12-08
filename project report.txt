@@ -95,7 +95,78 @@ OAI22&&0.9237&&0.7056&&30.9
 
 5.4 Cell Delay
 
-  The following table contains Presim, Postsim for both planar and monolithic 3D rising and falling time. Assume output capacitance is 50 fF. For 4BM metal layer stack
+  The following table contains Presim, Postsim for both planar and monolithic 3D rising and falling time. The testing output capacitance is 50 fF. For 4BM metal layer stack we applied, the average resistance for a single stacked via is 20 ohms, and parasitic capacitance
+ is 0.123 fF. After calculating and spice simulation, we found that metal 1 wire which is 3.42um long and 65 nm wide can fit the requirement well. As the extracted nettles files shows:
 
+.subckt PM_AND2_OUT 3 7 8
+c10 3 0 0.0371754f
+r11 7 8 1.43133
+r12 3 7 1.634
+.ends
 
+.subckt PM_AND2_3D_OUT 4 8 12
+c14 12 0 0.00285922f
+c15 8 0 0.0134125f
+c16 4 0 0.169493f  
+r17 12 14 0.220645
+r18 12 13 0.0980645
+r19 8 14 0.975333
+r20 4 13 19.304   
+.ends
+
+  PM_AND2_OUT and PM_AND2_3D_OUT are the same net in an AND2 cell, and the only difference is PM_AND2_3D_OUT is connected to a 3.42 um metal 1 wire. You can find that C16 and r20 are quite close to our desired value. Since the parasitic resistance and capacitance of 3DMI stacking vias are not large, we think that it would be sufficient for the simulation.
+
+Pre-layout simulation
+cell names&&rising time(ps)&&falling time(ps)
+INV&&376.3&&242.8
+BUF&&383.65&&263.52
+NAND2&&383.94&&212.3
+NAND3&&386.24&&201.86
+NAND4&&390.49&&197.51
+NOR2&&409.65&&235.72
+NOR3&&431.36&&263.98
+NOR4&&446.26&&268.06
+AND2&&388.24&&144.2
+AND3&&392.82&&110.57
+AND4&&396.34&&96.91
+AOI21&&411.6&&219.26
+AOI22&&333&&224.94
+OAI21&&446.27&&218.06
+OAI22&&417.16&&160.18
+
+Post-layout simulation for 2D standard cells
+cell names&&rising time(ps)&&falling time (ps)
+INV&&383.5&&249.72
+BUF&&394.09&&270.84
+NAND2&&396&&219
+NAND3&&413&&213
+NAND4&&435.65&&212
+NOR2&&419.79&&262.17
+NOR3&&454.44&&279.22
+NOR4&&488.38&&301.18
+AND2&&404.23&&168.23
+AND3&&414.82&&163.74
+AND4&&427.33&&158.24
+AOI21&&432.26&&228.9
+AOI22&&362.22&&238.24
+OAI21&&469.83&&229.28
+OAI22&&446.02&&184.48
+
+Post-layout simulation for 3D standard cells
+cell names&&rising time(ps)&&falling time(ps)
+INV&&400.1&&263.35
+BUF&&410.3&&283.51
+NAND2&&409.25&&227.25
+NAND3&&428.65&&221.3
+NAND4&&451.14&&223.65
+NOR2&&436.55&&273.12
+NOR3&&471.58&&290.01
+NOR4&&506.42&&312.27
+AND2&&418.83&&187.3
+AND3&&429.62&&180.12
+AND4&&441.7&&172.4
+AOI21&&438.23&&232
+AOI22&&357.76&&240.43
+OAI21&&471.77&&232.6
+OAI22&&450.39&&186.41
 
