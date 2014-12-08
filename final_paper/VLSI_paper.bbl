@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{CELONCEL}
+S.~Bobba, A.~Chakraborty, O.~Thomas, P.~Batude, T.~Ernst, O.~Faynot, D.Z. Pan,
+  and G.~De~Micheli.
+\newblock Celoncel: Effective design technique for 3-d monolithic integration
+  targeting high performance integrated circuits.
+\newblock In {\em Design Automation Conference (ASP-DAC), 2011 16th Asia and
+  South Pacific}, pages 336--343, Jan 2011.
+
+\bibitem{ULTRA}
+Young-Joon Lee, P.~Morrow, and Sung~Kyu Lim.
+\newblock Ultra high density logic designs using transistor-level monolithic 3d
+  integration.
+\newblock In {\em Computer-Aided Design (ICCAD), 2012 IEEE/ACM International
+  Conference on}, pages 539--546, Nov 2012.
+
+\bibitem{NCSU}
+North Carolina~State University.
+\newblock Electronic design automation (eda) wiki, 2012.
+
+\end{thebibliography}
+
