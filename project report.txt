@@ -1,0 +1,101 @@
+5 User document
+5.1 Using 3DMI Standard Cells
+5.2 Standard Cell List
+5.3 Cell Area
+5.4 Cell Delay
+X5.5 Power and Loading Capacitance(?)
+
+6 Testing
+6.1 Area Issue
+6.2 Standard Cells Performance Compare
+6.3 Cell Determination
+
+
+
+
+
+5.1 Using 3DMI Standard Cells
+
+  The 3DMI standard library has similar design concept with conventional planar process standard library. The biggest difference is it separate NMOS and PMOS transistors into two layers, which can be used to reduce chip area, global wire routing length and even provide new way of circuit design.
+  In this library, we put all the PMOS transistors and power rail (VDD) into the bottom layer, because normally PMOS transistors occupy larger area. For the bottom layer, we apply 4BM metal layer stack [Ultra High Density Logic Designs …] which adds 3 metal layers to the bottom tier. In other word, there are total 4 local metal layers available on the bottom tier. It is a good choice because as we mentioned, in this library PMOS transistors are located in the bottom tier. With more local metal line, it could bring more convenience when routing in tight space.
+  For each cell, there is  always one side for the connection of  inter-tier vias (MIVs). Therefore, routing should be more careful when wires are close to the edge. Another important thing is when choosing cells, some cells could be more  favorable than others, especially for cells have similar NMOS and PMOS area, which will be discussed later.
+
+5.2 Standard Cell List
+  We choose total 20 standard cells, including an inverter chain to test the potential problems caused by monolithic 3D integration. All of the cells should be sufficient for normal design, and could be useful for testing most of the circuits using 3DMI process. In order to compare the differences between 2D and 3D process, we construct both type with the same floorplaning mechanism which can help easily understand the advantages and disadvantages among two strategies.
+
+
+2D Standard Cells
+
+category&&#of cells&&cell names
+buffer&&3&&INV, BUF, INV_CHAIN
+sequential&&1&&DFF
+logic&&16&&NAND2/3/4, NOR2/3/4,
+        && &&AND2/3/4, OR2/3/4,
+    && &&AOI21, OAI21, AOI22, OAI22
+
+3D Standard Cells
+
+category&&#of cells&&cell names
+buffer&&3&&INV_3D, BUF_3D, INV_CHAIN_3D
+sequential&&1&&DFF_3D
+logic&&16&&NAND2/3/4_3D, NOR2/3/4_3D,
+        && &&AND2/3/4_3D, OR2/3/4_3D,
+    && &&AOI21_3D, OAI21_3D, AOI22_3D, OAI22_3D
+
+
+5.3 Cell Area
+
+  One of the most obvious benefit of using 3D ICs is it can reduce area of the chips or SoCs by stacking the circuits and growing vertical. Here we not only provide the cell area of monolithic 3D standard cells but also  the cell area for 2D standard cells. Therefore, You can use the tables to calculate how much area  could be saved by using 3DMI.
+
+cell names&&area in 2D(um^2)&&area in 3DMI(um^2)&&difference percentage
+INV&&0.4151&&0.2352&&42.6%
+BUF&&0.8483&&0.4828&&75.7%
+INV_CHAIN&&
+NAND2&&0.7242&&0.4531&&59.8%
+NAND3&&1.0356&&0.5946&&45.5%
+NAND4&&1.3523&&0.7229&&46.5%
+NOR2&&0.7943&&0.5304&&29.4%
+NOR3&&1.2288&&0.8661&&29.5%
+NOR4&&1.7825&&1.3195&&26%
+AND2&&1.1866&&0.7102&&41%
+AND3&&1.5595&&0.88&&43.6%
+AND4&&1.9815&&1.179&&40.5%
+OR2&&1.3298&&0.844&&36.5%
+OR3&&1.4506&&1.2953&&10.7%
+OR4&&2.1974&&1.792&&18.4%
+AOI21&&1.125&&0.6244&&44.2%
+AOI22&&1.675&&0.9165&&45.3%
+OAI21&&1.1306&&0.6242&&44.8%
+OAI22&&1.9163&&0.9237&&51.6%
+DFF&&
+
+The following table provides the area of PMOS transistors and NMOS transistors in a single 3D standard cell. We can see which cells are more competitive when applied on 3D technology.
+
+cell names&&area of PMOS(um^2)&&area of NMOS(um^2)&&difference percentage
+INV&&0.2352&&0.1925&&22.2
+BUF&&0.4828&&0.37&&30.5
+INV_CHAIN&&
+NAND2&&0.4531&&0.3516&&28.9
+NAND3&&0.5946&&0.5547&&71.9
+NAND4&&0.7229&&0.7031&&28.2
+NOR2&&0.5304&&0.336&&57.9
+NOR3&&0.8661&&0.4615&&87.7
+NOR4&&1.3195&&0.6867&&92.1
+AND2&&0.7102&&0.6137&&15.7
+AND3&&0.8158&&0.88&&7.3
+AND4&&0.9675&&1.179&&17.9
+OR2&&0.844&&0.5688&&48.4
+OR3&&1.2953&&0.6891&&88
+OR4&&1.792&&0.8112&&121
+AOI21&&0.6244&&0.4894&&27.6
+AOI22&&0.9165&&0.5694&&61
+OAI21&&0.6242&&0.5527&&12.9
+OAI22&&0.9237&&0.7056&&30.9
+
+
+5.4 Cell Delay
+
+  The following table contains Presim, Postsim for both planar and monolithic 3D rising and falling time. Assume output capacitance is 50 fF. For 4BM metal layer stack
+
+
+
