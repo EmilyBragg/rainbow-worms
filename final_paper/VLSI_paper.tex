@@ -27,7 +27,7 @@
 \section{Specifications}
 \subsection{Overview} We are designing a library of standard cells (listed in Table \ref{tab:cell_table}) for reducing area using monolithic 3D IC technology. Once completed, these cells should be able to be placed in a design andreduce the area by up to 40\% in the ideal case. This also should allow for less area consumed by routing, as routing can be run in the layer that has less area dedicated to logic (typically the same layer as the NMOS, due to the smaller transistor widths).
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \begin{tabular}{|c|c|} 
 \hline
@@ -50,9 +50,66 @@ BUF & N/A \\ \hline
 \subsection{Design Targets} Our primary goal is area reduction, and we expect that using 3D IC technology can achieve area improvements approaching 50\% in the ideal case. However, we expect most of our better gains to be around 40\% less area, due to the overhead created by the MIVs. The best cases for area reduction come from gates that have equally sized PMOS and NMOS transistors; however, this is rarely the case (with size typically larger on the PMOS network), and even if it were, we could not achieve 50\% area reduction due to the MIV area. We plan to create reference versions of all of the standard cells, and the power and timing requirements for the reference versions are our design targets for the power and timing requirements of the 3D versions. 
 
 \section{Design}
-\subsection{Basic Architecture} The most basic goal of our design is to achieve the functionality of each standard cell. 
+\subsection{Basic Architecture} The most basic goal of our design is to achieve the functionality of each standard cell. Because we used the technique outlined in ~\cite{ULTRA}, the PMOS and NMOS networks remained the same as they were in the standard cell, except for removing the poly between and replacing it with a contact to metal1. 
 \subsection{Toolset} NCSU has a library for 3D ICs that we initially considered using. However, while it does support multiple layers, it has no functionality for MIVs (focusing rather on TSV-based ICs). This meant two things for our design. Firstly, if we built our designs using the 3D IC library provided, there would be no way of achieving power and timing simulation, as TSV technology has radically different effects. Secondly, TSVs would dominate the area of any cell, and thus we would not be able to get valid area results either. The only advantage this path would have had would be for purposes of simulating the logic, which was basic and thus would not be important information. \\ 
 We instead decided to utilize the standard 45nm NCSU libraries. While this does not support laying directly, we were able to simulate the effect of the MIV by separating the layers with a metal1 wire, with the length calculate to provide the same resistance as the MIV would, for power and timing simulations. Additionally, as the contacts connecting the poly to the wire are within 5nm of the size of a MIV, we can accurately measure the area. This approach allowed us to calculate the area, power, and timing achievable if we had tools that supported the technology. 
+	\begin{figure}[t]
+		\centering
+		\includegraphics[width=7cm]{step1}
+  		\caption{NAND2 Schematic}
+		\label{step1}
+	\end{figure}		
+\begin{figure}[h]
+\centering
+\parbox{8cm}{
+\includegraphics[width=4cm]{step3}
+  \caption{NAND2 Layout}
+\label{step3}}
+\qquad
+\begin{minipage}{7cm}
+\includegraphics[width=4cm]{3d_layout}
+  \caption{Simulated 3D NAND2 Layout}
+\label{3d_layout}
+\end{minipage}
+\end{figure}
+
+\subsection{Design Flow} To illustrate our proceedure, here are the steps taken for a NAND2 gate. 
+	\begin{enumerate}
+		\item Create a schematic (Fig.~\ref{step1})
+		\item Generate the pins from the schematic
+		\item Create a layout for the standard cell (Fig.~\ref{step3})
+		\item Take the standard cell layout and remove the interconnecting polysilicon
+		\item Add a 65nm by 3420nm metal1 connection between the poly contacts and the inputs. This size was chosen by calculating the wire length necessary, when created from a material with the resistivity of metal1 (.25$\Omega$ / square) ~\cite{NCSU}, to simulate a MIV resistance of 20 $\Omega$ \cite{ULTRA} . We chose 65nm width to minimize the required length.  This is shown in Figure ~\ref{3d_layout}.
+		\item Measure each half of the cell (the 3D IC area is equal to the max of the two sizes)
+		\item Simulate the 3D version of the cell pre- and post- layout to determine the power and timing. Timing is shown for both rising and falling worst case scenarios for planar (Figures ~\ref{rising} and ~\ref{falling}) and 3D (Figures ~\ref{3d_rising} and ~\ref{3d_falling}) designs.
+	\end{enumerate}
+\begin{figure}
+\centering
+\parbox{8cm}{
+\includegraphics[width=7cm]{rising}
+  \caption{Worst-case NAND2 Rising Time}
+\label{rising}}
+\qquad
+\begin{minipage}{7cm}
+\includegraphics[width=7cm]{falling}
+  \caption{Worst-case NAND2 Falling Time}
+\label{falling}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\parbox{8cm}{
+\includegraphics[width=7cm]{3d_rising}
+  \caption{Worst-case NAND2\_3D Rising Time}
+\label{3d_rising}}
+\qquad
+\begin{minipage}{7cm}
+\includegraphics[width=7cm]{3d_falling}
+  \caption{Worst-case NAND2\_3D Falling Time}
+\label{3d_falling}
+\end{minipage}
+\end{figure}
 \subsection{Optimization Techniques} We employed the standard optimization techniques used for standard cell libraries, as the pull-up and pull-down networks remain intact. These include sizing the transistors so that they are balanced, adding additional pins on the larger transistors to reduce the resistance from the contacts, and carefully routing the metal1 so as to avoid unnecessary area due to routing. The last one is particularly relevant, as space that would have been available between transistors due to minimum distances between wells is no longer available. One unique advantage that monolithic 3D IC technology gives us is the ability to reduce the length of the poly. As it notes in ~\cite{ULTRA}, the unit resistance of polysilicon is significantly higher than that of metal; by only having polysilicon on the transistor and not forming a wire between them, we can reduce the internal wire resistance. This counteracts the additional resistance provided by the MIV, producing what we anticipate to be a negligible timing difference.  
 \subsection{Naming Conventions} Our naming conventions were to have either \textless CELLNAME\textgreater \textless CELLSIZE\textgreater, for a standard version of a cell, or \textless CELLNAME\textgreater \textless CELLSIZE\textgreater\_3D, for the version that has the additional wiring to simulate a 3D IC. 
 \subsection{Issue Tracking} We kept track of the cells through git, using it to track progress, bugs, to-do items, and notes on each design as we worked on them. 
@@ -62,23 +119,28 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 %data sheet and tables
 % need timing, power, area, capacitance, drive strength
 
-\section{Testing}
+\section{Testing}\label{sec:testing}
 %testing methods, bugs encountered, traces applied
 
 \section{Optimization}
 \subsection{Optimizing Individual Cells}
-\subsection{Using Monolithic 3D ICs to Optimize Full Designs}
+Individual cells were primarily optimized using prior knowledge, as the design process (as noted in Section 3) does not differ significantly from the standard process. The methods that we used have all been thoroughly investigated in Lab 1 of this semester, and thus are not shown in detail. We used multiple contacts for all of the cells that had transistors large enough to fit multiple contacts, to reduce the resistance. Additionally, all transistors were sized to have 2:1 PMOS:NMOS transistors, to minimize delay. 
 
-\paragraph{}
+\subsection{Using Monolithic 3D ICs to Optimize Full Designs} The more interesting problem is how to use these completed cells to optimize existing designs. There are several facets, which we will analyze here; without support from the tools, it is difficult or impossible to show these in an actual design. 
+\begin{enumerate}
+	\item \textbf{Total Area} The biggest optimization goal of using 3D ICs is to reduce area. In the instances of balanced networks, as is shown in Section ~\ref{sec:testing}, the area saving can approach 40 -- 50 \% on individual cells. However, the more optimal the split between the two sections is, the less room is left for routing, and thus cells must be spaced out to allow for wires. If we assume an optimal gate (using the NAND2 numbers from above) that must route wires, the area savings goes down by 130nm for every second wire added (as they can be split between layers if there are an even number). For a NAND2 gate, that is equivalent to a third of the area savings for each additional wire. 
+	\item \textbf{Routing} Another interesting case, and a more realistic one, is that the user has a balance of cell sizes and types. In this case, while the overall area savings are less, you can hide the routing overhead in the underutilized layer (typically with the NMOS, though the routing can also use MIVs to switch to the other layer if it becomes advantageous). This can help mitigate the pressure on routing. Designs have been found by ~\cite{ULTRA} to approach 40\% reduction in area, even with the additional difficulties of routing. 
 
+\end{enumerate}
 
 \newpage
 \appendix 
 \section{Source Code}
 
+\clearpage
 \section{Cell Layouts} 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/AND2_PMOS}
@@ -92,7 +154,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/AND3_PMOS}
@@ -107,7 +169,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{figure}
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/AND4_PMOS}
@@ -121,7 +183,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/AOI21_PMOS}
@@ -135,7 +197,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/AOI22_PMOS}
@@ -149,7 +211,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/NAND2_PMOS}
@@ -163,7 +225,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/NAND3_PMOS}
@@ -177,7 +239,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/NAND4_PMOS}
@@ -191,7 +253,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/INV_PMOS}
@@ -205,7 +267,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/BUF_PMOS}
@@ -219,7 +281,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/NOR2_PMOS}
@@ -233,7 +295,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/NOR3_PMOS}
@@ -247,7 +309,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/NOR4_PMOS}
@@ -261,7 +323,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/OAI21_PMOS}
@@ -275,7 +337,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/OAI22_PMOS}
@@ -289,7 +351,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/OR2_PMOS}
@@ -303,7 +365,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/OR3_PMOS}
@@ -317,8 +379,7 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \end{minipage}
 \end{figure}
 
-\begin{figure}[h]
-\centering
+\begin{figure}
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/OR4_PMOS}
   \caption{OR4 Pull-up Network}
