@@ -68,12 +68,12 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 \qquad
 \begin{minipage}{7cm}
 \includegraphics[width=4cm]{3d_layout}
-  \caption{Simulated 3D NAND2 Layout}
+  \caption{Simulated 3D NAND2 Layout - Middle wires shortened for figure visibility}
 \label{3d_layout}
 \end{minipage}
 \end{figure}
 
-\subsection{Design Flow} To illustrate our proceedure, here are the steps taken for a NAND2 gate. 
+\subsection{Design Flow} To illustrate our procedure, here are the steps taken for a NAND2 gate. 
 	\begin{enumerate}
 		\item Create a schematic (Fig.~\ref{step1})
 		\item Generate the pins from the schematic
@@ -116,8 +116,208 @@ We instead decided to utilize the standard 45nm NCSU libraries. While this does 
 
 
 \section{User Document}
-%data sheet and tables
-% need timing, power, area, capacitance, drive strength
+\subsection{Using 3DMI Standard Cells}
+The 3DMI standard library has similar design concept with conventional planar process standard library. The biggest difference is it separate NMOS and PMOS transistors into two layers, which can be used to reduce chip area, global wire routing length and even provide new way of circuit design.
+  In this library, we put all the PMOS transistors and power rail (VDD) into the bottom layer, because normally PMOS transistors occupy larger area. For the bottom layer, we apply 4BM metal layer stack [Ultra High Density Logic Designs …] which adds 3 metal layers to the bottom tier. In other word, there are total 4 local metal layers available on the bottom tier. It is a good choice because as we mentioned, in this library PMOS transistors are located in the bottom tier. With more local metal line, it could bring more convenience when routing in tight space.
+  For each cell, there is  always one side for the connection of  inter-tier vias (MIVs). Therefore, routing should be more careful when wires are close to the edge. Another important thing is when choosing cells, some cells could be more  favorable than others, especially for cells have similar NMOS and PMOS area, which will be discussed later.
+
+\subsection{Standard Cell List}
+  We choose total 20 standard cells, including an inverter chain to test the potential problems caused by monolithic 3D integration. All of the cells should be sufficient for normal design, and could be useful for testing most of the circuits using 3DMI process. In order to compare the differences between 2D and 3D process, we construct both type with the same floorplanning mechanism which can help easily understand the advantages and disadvantages among two strategies.
+
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|} 
+\hline
+Category&Number of cells&Cell Names \\ \hline
+buffer&3&INV, BUF, INV\_CHAIN \\ \hline
+logic&16&NAND2/3/4, NOR2/3/4,  \\ \hline
+      &&  AND2/3/4, OR2/3/4, \\ \hline  
+    &&AOI21, OAI21, AOI22, OAI22 \\ \hline
+\end{tabular}
+\label{tab:2d_cell_list}
+\caption{2D Cells Created}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|} 
+\hline
+Category&Number of cells&Cell Names \\ \hline
+buffer&3&INV\_3D, BUF\_3D, INV\_CHAIN\_3D \\ \hline
+logic&16&NAND2/3/4\_3D, NOR2/3/4\_3D, \\ \hline
+        &&AND2/3/4\_3D, OR2/3/4\_3D,  \\ \hline
+    &&AOI21\_3D, OAI21\_3D, AOI22\_3D, OAI22\_3D \\ \hline
+\end{tabular}
+\label{tab:3d_cell_list}
+\caption{3D Cells Created}
+\end{table}
+
+
+\subsection{Cell Area}
+  One of the most obvious benefit of using 3D ICs is that they can reduce area of the chips or SoCs by stacking the circuits and growing vertically. Here we not only provide the cell area of monolithic 3D standard cells but also  the cell area for 2D standard cells. Therefore, you can use the tables to calculate how much area could be saved by using 3DMI.
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|} 
+\hline
+cell names&area in 2D(um\^2)&area in 3DMI(um\^2)&difference percentage \\ \hline
+INV&0.4151&0.2352&42.6\\ \hline
+BUF&0.8483&0.4828&43.5\\ \hline
+INV\_CHAIN&&& \\ \hline
+NAND2&0.7242&0.4531&37.5\\ \hline
+NAND3&1.0356&0.5946&43.5\\ \hline
+NAND4&1.3523&0.7229&46.5\\ \hline
+NOR2&0.7943&0.5304&29.4\\ \hline
+NOR3&1.2288&0.8661&29.5\\ \hline
+NOR4&1.7825&1.3195&26\\ \hline
+AND2&1.1866&0.7102&41\\ \hline
+AND3&1.5595&0.88&43.6\\ \hline
+AND4&1.9815&1.179&40.5\\ \hline
+OR2&1.3298&0.844&36.5\\ \hline
+OR3&1.4506&1.2953&10.7\\ \hline
+OR4&2.1974&1.792&18.4\\ \hline
+AOI21&1.125&0.6244&44.2\\ \hline
+AOI22&1.675&0.9165&45.3\\ \hline
+OAI21&1.1306&0.6242&44.8\\ \hline
+OAI22&1.9163&0.9237&51.6\\ \hline
+\end{tabular}
+\label{tab:nmos_area}
+\caption{Total Area Comparison}
+\end{table}
+
+The following table provides the area of PMOS transistors and NMOS transistors in a single 3D standard cell. We can see which cells are more competitive when applied on 3D technology.
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|} 
+\hline
+cell names&area of PMOS(um\^2)&area of NMOS(um\^2)&difference percentage\\ \hline
+INV&0.2352&0.1925&22.2\\ \hline
+BUF&0.4828&0.37&30.5\\ \hline
+INV\_CHAIN&&&\\ \hline
+NAND2&0.4531&0.3516&28.9\\ \hline
+NAND3&0.5946&0.5547&71.9\\ \hline
+NAND4&0.7229&0.7031&28.2\\ \hline
+NOR2&0.5304&0.336&57.9\\ \hline
+NOR3&0.8661&0.4615&87.7\\ \hline
+NOR4&1.3195&0.6867&92.1\\ \hline
+AND2&0.7102&0.6137&15.7\\ \hline
+AND3&0.8158&0.88&7.3\\ \hline
+AND4&0.9675&1.179&17.9\\ \hline
+OR2&0.844&0.5688&48.4\\ \hline
+OR3&1.2953&0.6891&88\\ \hline
+OR4&1.792&0.8112&121\\ \hline
+AOI21&0.6244&0.4894&27.6\\ \hline
+AOI22&0.9165&0.5694&61\\ \hline
+OAI21&0.6242&0.5527&12.9\\ \hline
+OAI22&0.9237&0.7056&30.9\\ \hline
+
+\end{tabular}
+\caption{PMOS Area Comparison}
+\label{tab:pmos_area}
+\end{table}
+\subsection{Cell Delay}
+  The following table contains Presim, Postsim for both planar and monolithic 3D rising and falling time. Assume output capacitance is 50 fF. For 4BM metal layer stack we applied, the average resistance for a single stacked via is 20 ohms, and parasitic capacitance
+ is 0.123 fF. After calculating and spice simulation, we found that metal 1 wire which is 3.42um long and 65 nm wide can fit the requirement well. As the extracted nettles files shows:
+
+\begin{verbatim}
+.subckt PM\_AND2\_OUT 3 7 8
+c10 3 0 0.0371754f
+r11 7 8 1.43133
+r12 3 7 1.634
+.ends
+
+.subckt PM\_AND2\_3D\_OUT 4 8 12
+c14 12 0 0.00285922f
+c15 8 0 0.0134125f
+c16 4 0 0.169493f  
+r17 12 14 0.220645
+r18 12 13 0.0980645
+r19 8 14 0.975333
+r20 4 13 19.304   
+.ends
+\end{verbatim}
+
+
+  PM\_AND2\_OUT and PM\_AND2\_3D\_OUT are the same net in an AND2 cell, and the only difference is PM\_AND2\_3D\_OUT is connected to a 3.42 um metal 1 wire. You can find that C16 and r20 are quite close to our desired value. Since the parasitic resistance and capacitance of 3DMI stacking vias are not large, we think that it would be sufficient for the simulation.
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|} 
+\hline
+cell names&rising time(ps)&falling time(ps) \\ \hline
+INV&376.3&242.8 \\ \hline
+BUF&383.65&263.52 \\ \hline
+NAND2&383.94&212.3 \\ \hline
+NAND3&386.24&201.86 \\ \hline
+NAND4&390.49&197.51 \\ \hline
+NOR2&409.65&235.72 \\ \hline
+NOR3&431.36&263.98 \\ \hline
+NOR4&446.26&268.06 \\ \hline
+AND2&388.24&144.2 \\ \hline
+AND3&392.82&110.57 \\ \hline
+AND4&396.34&96.91 \\ \hline
+AOI21&411.6&219.26 \\ \hline
+AOI22&333&224.94 \\ \hline
+OAI21&446.27&218.06 \\ \hline
+OAI22&417.16&160.18 \\ \hline
+\end{tabular}
+\caption{Pre-layout Simulation}
+\label{tab:prelayout}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|} 
+\hline
+cell names&rising time(ps)&falling time (ps) \\ \hline
+INV&383.5&249.72 \\ \hline
+BUF&394.09&270.84 \\ \hline
+NAND2&396&219 \\ \hline
+NAND3&413&213 \\ \hline
+NAND4&435.65&212 \\ \hline
+NOR2&419.79&262.17 \\ \hline
+NOR3&454.44&279.22 \\ \hline
+NOR4&488.38&301.18 \\ \hline
+AND2&404.23&168.23 \\ \hline
+AND3&414.82&163.74 \\ \hline
+AND4&427.33&158.24 \\ \hline
+AOI21&432.26&228.9 \\ \hline
+AOI22&362.22&238.24 \\ \hline
+OAI21&469.83&229.28 \\ \hline
+OAI22&446.02&184.48 \\ \hline
+\end{tabular}
+\caption{Post-layout Simulation for 2D cells}
+\label{tab:2postlayout}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|} 
+\hline
+cell names&rising time(ps)&falling time(ps) \\ \hline
+INV&400.1&263.35 \\ \hline
+BUF&410.3&283.51 \\ \hline
+NAND2&409.25&227.25 \\ \hline
+NAND3&428.65&221.3 \\ \hline
+NAND4&451.14&223.65 \\ \hline
+NOR2&436.55&273.12 \\ \hline
+NOR3&471.58&290.01 \\ \hline
+NOR4&506.42&312.27 \\ \hline
+AND2&418.83&187.3 \\ \hline
+AND3&429.62&180.12 \\ \hline
+AND4&441.7&172.4 \\ \hline
+AOI21&438.23&232 \\ \hline
+AOI22&357.76&240.43 \\ \hline
+OAI21&471.77&232.6 \\ \hline
+OAI22&450.39&186.41 \\ \hline
+\end{tabular}
+\caption{Post-layout Simulation for 3D cells}
+\label{tab:3postlayout}
+\end{table}
+
+
+
 
 \section{Testing}\label{sec:testing}
 %testing methods, bugs encountered, traces applied
@@ -134,8 +334,6 @@ Individual cells were primarily optimized using prior knowledge, as the design p
 \end{enumerate}
 
 \newpage
-\appendix 
-\section{Source Code}
 
 \clearpage
 \section{Cell Layouts} 
@@ -365,7 +563,7 @@ Individual cells were primarily optimized using prior knowledge, as the design p
 \end{minipage}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[ht]
 \centering
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/OR3_PMOS}
@@ -379,7 +577,7 @@ Individual cells were primarily optimized using prior knowledge, as the design p
 \end{minipage}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[ht]
 \parbox{8cm}{
 \includegraphics[width=7cm]{final_cells/OR4_PMOS}
   \caption{OR4 Pull-up Network}
@@ -392,7 +590,7 @@ Individual cells were primarily optimized using prior knowledge, as the design p
 \end{minipage}
 \end{figure}
 
-
+\clearpage
 \newpage
 \bibliographystyle{plain}
 \bibliography{vlsi}

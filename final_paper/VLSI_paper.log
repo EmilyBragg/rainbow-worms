@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.2)  7 DEC 2014 22:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.2)  7 DEC 2014 23:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -502,296 +502,303 @@ LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 114.
  [4 <./step1.png>]
 [5 <./step3.png> <./3d_layout.png> <./rising.png> <./falling.png>] [6 <./3d_ris
-ing.png> <./3d_falling.png>] [7]
-<final_cells/AND2_PMOS.png, id=47, 477.785pt x 436.63126pt>
+ing.png> <./3d_falling.png>] [7] [8] [9] [10]
+<final_cells/AND2_PMOS.png, id=57, 477.785pt x 436.63126pt>
 File: final_cells/AND2_PMOS.png Graphic file (type png)
 
 <use final_cells/AND2_PMOS.png>
-Package pdftex.def Info: final_cells/AND2_PMOS.png used on input line 148.
+Package pdftex.def Info: final_cells/AND2_PMOS.png used on input line 346.
 (pdftex.def)             Requested size: 199.16928pt x 182.01141pt.
 
-<final_cells/AND2_NMOS.png, id=48, 585.18625pt x 440.64626pt>
+<final_cells/AND2_NMOS.png, id=58, 585.18625pt x 440.64626pt>
 File: final_cells/AND2_NMOS.png Graphic file (type png)
 
 <use final_cells/AND2_NMOS.png>
-Package pdftex.def Info: final_cells/AND2_NMOS.png used on input line 151.
+Package pdftex.def Info: final_cells/AND2_NMOS.png used on input line 349.
 (pdftex.def)             Requested size: 199.16928pt x 149.97238pt.
 
-<final_cells/AND3_PMOS.png, id=49, 694.595pt x 480.79625pt>
+<final_cells/AND3_PMOS.png, id=59, 694.595pt x 480.79625pt>
 File: final_cells/AND3_PMOS.png Graphic file (type png)
 
 <use final_cells/AND3_PMOS.png>
-Package pdftex.def Info: final_cells/AND3_PMOS.png used on input line 162.
+Package pdftex.def Info: final_cells/AND3_PMOS.png used on input line 360.
 (pdftex.def)             Requested size: 199.16928pt x 137.86469pt.
 
-<final_cells/AND3_NMOS.png, id=50, 685.56125pt x 504.88625pt>
+<final_cells/AND3_NMOS.png, id=60, 685.56125pt x 504.88625pt>
 File: final_cells/AND3_NMOS.png Graphic file (type png)
 
 <use final_cells/AND3_NMOS.png>
-Package pdftex.def Info: final_cells/AND3_NMOS.png used on input line 165.
+Package pdftex.def Info: final_cells/AND3_NMOS.png used on input line 363.
 (pdftex.def)             Requested size: 199.16928pt x 146.67519pt.
 
-<final_cells/AND4_PMOS.png, id=51, 718.685pt x 474.77374pt>
+<final_cells/AND4_PMOS.png, id=61, 718.685pt x 474.77374pt>
 File: final_cells/AND4_PMOS.png Graphic file (type png)
 
 <use final_cells/AND4_PMOS.png>
-Package pdftex.def Info: final_cells/AND4_PMOS.png used on input line 177.
+Package pdftex.def Info: final_cells/AND4_PMOS.png used on input line 375.
 (pdftex.def)             Requested size: 199.16928pt x 131.57378pt.
 
-<final_cells/AND4_NMOS.png, id=52, 679.53876pt x 485.815pt>
+<final_cells/AND4_NMOS.png, id=62, 679.53876pt x 485.815pt>
 File: final_cells/AND4_NMOS.png Graphic file (type png)
 
 <use final_cells/AND4_NMOS.png>
-Package pdftex.def Info: final_cells/AND4_NMOS.png used on input line 180.
+Package pdftex.def Info: final_cells/AND4_NMOS.png used on input line 378.
 (pdftex.def)             Requested size: 199.16928pt x 142.38756pt.
 
-<final_cells/AOI21_PMOS.png, id=53, 660.4675pt x 689.57625pt>
+<final_cells/AOI21_PMOS.png, id=63, 660.4675pt x 689.57625pt>
 File: final_cells/AOI21_PMOS.png Graphic file (type png)
 
 <use final_cells/AOI21_PMOS.png>
-Package pdftex.def Info: final_cells/AOI21_PMOS.png used on input line 191.
+Package pdftex.def Info: final_cells/AOI21_PMOS.png used on input line 389.
 (pdftex.def)             Requested size: 199.16928pt x 207.94771pt.
 
-<final_cells/AOI21_NMOS.png, id=54, 743.77875pt x 634.37pt>
+<final_cells/AOI21_NMOS.png, id=64, 743.77875pt x 634.37pt>
 File: final_cells/AOI21_NMOS.png Graphic file (type png)
 
 <use final_cells/AOI21_NMOS.png>
-Package pdftex.def Info: final_cells/AOI21_NMOS.png used on input line 194.
+Package pdftex.def Info: final_cells/AOI21_NMOS.png used on input line 392.
 (pdftex.def)             Requested size: 199.16928pt x 169.86894pt.
 
-<final_cells/AOI22_PMOS.png, id=55, 528.97626pt x 517.935pt>
+<final_cells/AOI22_PMOS.png, id=65, 528.97626pt x 517.935pt>
 File: final_cells/AOI22_PMOS.png Graphic file (type png)
 
 <use final_cells/AOI22_PMOS.png>
-Package pdftex.def Info: final_cells/AOI22_PMOS.png used on input line 205.
+Package pdftex.def Info: final_cells/AOI22_PMOS.png used on input line 403.
 (pdftex.def)             Requested size: 199.16928pt x 195.00754pt.
 
-<final_cells/AOI22_NMOS.png, id=56, 597.23125pt x 410.53375pt>
+<final_cells/AOI22_NMOS.png, id=66, 597.23125pt x 410.53375pt>
 File: final_cells/AOI22_NMOS.png Graphic file (type png)
 
 <use final_cells/AOI22_NMOS.png>
-Package pdftex.def Info: final_cells/AOI22_NMOS.png used on input line 208.
+Package pdftex.def Info: final_cells/AOI22_NMOS.png used on input line 406.
 (pdftex.def)             Requested size: 199.16928pt x 136.9048pt.
 
-<final_cells/NAND2_PMOS.png, id=57, 436.63126pt x 483.8075pt>
+<final_cells/NAND2_PMOS.png, id=67, 436.63126pt x 483.8075pt>
 File: final_cells/NAND2_PMOS.png Graphic file (type png)
 
 <use final_cells/NAND2_PMOS.png>
-Package pdftex.def Info: final_cells/NAND2_PMOS.png used on input line 219.
+Package pdftex.def Info: final_cells/NAND2_PMOS.png used on input line 417.
 (pdftex.def)             Requested size: 199.16928pt x 220.68643pt.
 
-<final_cells/NAND2_NMOS.png, id=58, 395.4775pt x 378.41376pt>
+<final_cells/NAND2_NMOS.png, id=68, 395.4775pt x 378.41376pt>
 File: final_cells/NAND2_NMOS.png Graphic file (type png)
 
 <use final_cells/NAND2_NMOS.png>
-Package pdftex.def Info: final_cells/NAND2_NMOS.png used on input line 222.
+Package pdftex.def Info: final_cells/NAND2_NMOS.png used on input line 420.
 (pdftex.def)             Requested size: 199.16928pt x 190.57487pt.
 
-<final_cells/NAND3_PMOS.png, id=59, 512.91624pt x 463.7325pt>
+<final_cells/NAND3_PMOS.png, id=69, 512.91624pt x 463.7325pt>
 File: final_cells/NAND3_PMOS.png Graphic file (type png)
 
 <use final_cells/NAND3_PMOS.png>
-Package pdftex.def Info: final_cells/NAND3_PMOS.png used on input line 233.
+Package pdftex.def Info: final_cells/NAND3_PMOS.png used on input line 431.
 (pdftex.def)             Requested size: 199.16928pt x 180.0695pt.
 
-<final_cells/NAND3_NMOS.png, id=60, 509.905pt x 418.56375pt>
+<final_cells/NAND3_NMOS.png, id=70, 509.905pt x 418.56375pt>
 File: final_cells/NAND3_NMOS.png Graphic file (type png)
 
 <use final_cells/NAND3_NMOS.png>
-Package pdftex.def Info: final_cells/NAND3_NMOS.png used on input line 236.
+Package pdftex.def Info: final_cells/NAND3_NMOS.png used on input line 434.
 (pdftex.def)             Requested size: 199.16928pt x 163.49466pt.
 
-<final_cells/NAND4_PMOS.png, id=61, 548.0475pt x 454.69875pt>
+<final_cells/NAND4_PMOS.png, id=71, 548.0475pt x 454.69875pt>
 File: final_cells/NAND4_PMOS.png Graphic file (type png)
 
 <use final_cells/NAND4_PMOS.png>
-Package pdftex.def Info: final_cells/NAND4_PMOS.png used on input line 247.
+Package pdftex.def Info: final_cells/NAND4_PMOS.png used on input line 445.
 (pdftex.def)             Requested size: 199.16928pt x 165.24556pt.
 
-<final_cells/NAND4_NMOS.png, id=62, 536.0025pt x 481.8pt>
+<final_cells/NAND4_NMOS.png, id=72, 536.0025pt x 481.8pt>
 File: final_cells/NAND4_NMOS.png Graphic file (type png)
 
 <use final_cells/NAND4_NMOS.png>
-Package pdftex.def Info: final_cells/NAND4_NMOS.png used on input line 250.
+Package pdftex.def Info: final_cells/NAND4_NMOS.png used on input line 448.
 (pdftex.def)             Requested size: 199.16928pt x 179.02777pt.
 
-<final_cells/INV_PMOS.png, id=63, 464.73625pt x 704.6325pt>
+<final_cells/INV_PMOS.png, id=73, 464.73625pt x 704.6325pt>
 File: final_cells/INV_PMOS.png Graphic file (type png)
 
 <use final_cells/INV_PMOS.png>
-Package pdftex.def Info: final_cells/INV_PMOS.png used on input line 261.
+Package pdftex.def Info: final_cells/INV_PMOS.png used on input line 459.
 (pdftex.def)             Requested size: 199.16928pt x 301.9754pt.
 
-<final_cells/INV_NMOS.png, id=64, 531.9875pt x 605.26125pt>
+<final_cells/INV_NMOS.png, id=74, 531.9875pt x 605.26125pt>
 File: final_cells/INV_NMOS.png Graphic file (type png)
 
 <use final_cells/INV_NMOS.png>
-Package pdftex.def Info: final_cells/INV_NMOS.png used on input line 264.
+Package pdftex.def Info: final_cells/INV_NMOS.png used on input line 462.
 (pdftex.def)             Requested size: 199.16928pt x 226.59373pt.
 
-<final_cells/BUF_PMOS.png, id=65, 482.80376pt x 405.515pt>
+<final_cells/BUF_PMOS.png, id=75, 482.80376pt x 405.515pt>
 File: final_cells/BUF_PMOS.png Graphic file (type png)
 
 <use final_cells/BUF_PMOS.png>
-Package pdftex.def Info: final_cells/BUF_PMOS.png used on input line 275.
+Package pdftex.def Info: final_cells/BUF_PMOS.png used on input line 473.
 (pdftex.def)             Requested size: 199.16928pt x 167.28317pt.
 
-<final_cells/BUF_NMOS.png, id=66, 532.99126pt x 334.24875pt>
+<final_cells/BUF_NMOS.png, id=76, 532.99126pt x 334.24875pt>
 File: final_cells/BUF_NMOS.png Graphic file (type png)
 
 <use final_cells/BUF_NMOS.png>
-Package pdftex.def Info: final_cells/BUF_NMOS.png used on input line 278.
+Package pdftex.def Info: final_cells/BUF_NMOS.png used on input line 476.
 (pdftex.def)             Requested size: 199.16928pt x 124.89925pt.
 
-<final_cells/NOR2_PMOS.png, id=67, 340.27126pt x 481.8pt>
+<final_cells/NOR2_PMOS.png, id=77, 340.27126pt x 481.8pt>
 File: final_cells/NOR2_PMOS.png Graphic file (type png)
 
 <use final_cells/NOR2_PMOS.png>
-Package pdftex.def Info: final_cells/NOR2_PMOS.png used on input line 289.
+Package pdftex.def Info: final_cells/NOR2_PMOS.png used on input line 487.
 (pdftex.def)             Requested size: 199.16928pt x 282.00992pt.
 
-<final_cells/NOR2_NMOS.png, id=68, 380.42125pt x 374.39874pt>
+<final_cells/NOR2_NMOS.png, id=78, 380.42125pt x 374.39874pt>
 File: final_cells/NOR2_NMOS.png Graphic file (type png)
 
 <use final_cells/NOR2_NMOS.png>
-Package pdftex.def Info: final_cells/NOR2_NMOS.png used on input line 292.
+Package pdftex.def Info: final_cells/NOR2_NMOS.png used on input line 490.
 (pdftex.def)             Requested size: 199.16928pt x 196.01956pt.
 
-<final_cells/NOR3_PMOS.png, id=69, 459.7175pt x 568.1225pt>
+<final_cells/NOR3_PMOS.png, id=79, 459.7175pt x 568.1225pt>
 File: final_cells/NOR3_PMOS.png Graphic file (type png)
 
 <use final_cells/NOR3_PMOS.png>
-Package pdftex.def Info: final_cells/NOR3_PMOS.png used on input line 303.
+Package pdftex.def Info: final_cells/NOR3_PMOS.png used on input line 501.
 (pdftex.def)             Requested size: 199.16928pt x 246.13437pt.
 
-<final_cells/NOR3_NMOS.png, id=70, 431.6125pt x 305.14pt>
+<final_cells/NOR3_NMOS.png, id=80, 431.6125pt x 305.14pt>
 File: final_cells/NOR3_NMOS.png Graphic file (type png)
 
 <use final_cells/NOR3_NMOS.png>
-Package pdftex.def Info: final_cells/NOR3_NMOS.png used on input line 306.
+Package pdftex.def Info: final_cells/NOR3_NMOS.png used on input line 504.
 (pdftex.def)             Requested size: 199.16928pt x 140.80841pt.
 
-<final_cells/NOR4_PMOS.png, id=71, 473.77pt x 613.29124pt>
+<final_cells/NOR4_PMOS.png, id=81, 473.77pt x 613.29124pt>
 File: final_cells/NOR4_PMOS.png Graphic file (type png)
 
 <use final_cells/NOR4_PMOS.png>
-Package pdftex.def Info: final_cells/NOR4_PMOS.png used on input line 317.
+Package pdftex.def Info: final_cells/NOR4_PMOS.png used on input line 515.
 (pdftex.def)             Requested size: 199.16928pt x 257.82387pt.
 
-<final_cells/NOR4_NMOS.png, id=72, 875.27pt x 614.295pt>
+<final_cells/NOR4_NMOS.png, id=82, 875.27pt x 614.295pt>
 File: final_cells/NOR4_NMOS.png Graphic file (type png)
 
 <use final_cells/NOR4_NMOS.png>
-Package pdftex.def Info: final_cells/NOR4_NMOS.png used on input line 320.
+Package pdftex.def Info: final_cells/NOR4_NMOS.png used on input line 518.
 (pdftex.def)             Requested size: 199.16928pt x 139.77576pt.
 
-<final_cells/OAI21_PMOS.png, id=73, 458.71375pt x 455.7025pt>
+<final_cells/OAI21_PMOS.png, id=83, 458.71375pt x 455.7025pt>
 File: final_cells/OAI21_PMOS.png Graphic file (type png)
 
 <use final_cells/OAI21_PMOS.png>
-Package pdftex.def Info: final_cells/OAI21_PMOS.png used on input line 331.
+Package pdftex.def Info: final_cells/OAI21_PMOS.png used on input line 529.
 (pdftex.def)             Requested size: 199.16928pt x 197.86044pt.
 
-<final_cells/OAI21_NMOS.png, id=74, 445.665pt x 399.4925pt>
+<final_cells/OAI21_NMOS.png, id=84, 445.665pt x 399.4925pt>
 File: final_cells/OAI21_NMOS.png Graphic file (type png)
 
 <use final_cells/OAI21_NMOS.png>
-Package pdftex.def Info: final_cells/OAI21_NMOS.png used on input line 334.
+Package pdftex.def Info: final_cells/OAI21_NMOS.png used on input line 532.
 (pdftex.def)             Requested size: 199.16928pt x 178.53252pt.
 
-<final_cells/OAI22_PMOS.png, id=75, 482.80376pt x 464.73625pt>
+<final_cells/OAI22_PMOS.png, id=85, 482.80376pt x 464.73625pt>
 File: final_cells/OAI22_PMOS.png Graphic file (type png)
 
 <use final_cells/OAI22_PMOS.png>
-Package pdftex.def Info: final_cells/OAI22_PMOS.png used on input line 345.
+Package pdftex.def Info: final_cells/OAI22_PMOS.png used on input line 543.
 (pdftex.def)             Requested size: 199.16928pt x 191.71315pt.
 
-<final_cells/OAI22_NMOS.png, id=76, 524.96124pt x 423.5825pt>
+<final_cells/OAI22_NMOS.png, id=86, 524.96124pt x 423.5825pt>
 File: final_cells/OAI22_NMOS.png Graphic file (type png)
 
 <use final_cells/OAI22_NMOS.png>
-Package pdftex.def Info: final_cells/OAI22_NMOS.png used on input line 348.
+Package pdftex.def Info: final_cells/OAI22_NMOS.png used on input line 546.
 (pdftex.def)             Requested size: 199.16928pt x 160.70448pt.
 
-<final_cells/OR2_PMOS.png, id=77, 522.95375pt x 489.83pt>
+<final_cells/OR2_PMOS.png, id=87, 522.95375pt x 489.83pt>
 File: final_cells/OR2_PMOS.png Graphic file (type png)
 
 <use final_cells/OR2_PMOS.png>
-Package pdftex.def Info: final_cells/OR2_PMOS.png used on input line 359.
+Package pdftex.def Info: final_cells/OR2_PMOS.png used on input line 557.
 (pdftex.def)             Requested size: 199.16928pt x 186.55588pt.
 
-<final_cells/OR2_NMOS.png, id=78, 540.0175pt x 349.305pt>
+<final_cells/OR2_NMOS.png, id=88, 540.0175pt x 349.305pt>
 File: final_cells/OR2_NMOS.png Graphic file (type png)
 
 <use final_cells/OR2_NMOS.png>
-Package pdftex.def Info: final_cells/OR2_NMOS.png used on input line 362.
+Package pdftex.def Info: final_cells/OR2_NMOS.png used on input line 560.
 (pdftex.def)             Requested size: 199.16928pt x 128.83041pt.
 
-<final_cells/OR3_PMOS.png, id=79, 555.07375pt x 533.995pt>
+<final_cells/OR3_PMOS.png, id=89, 555.07375pt x 533.995pt>
 File: final_cells/OR3_PMOS.png Graphic file (type png)
 
 <use final_cells/OR3_PMOS.png>
-Package pdftex.def Info: final_cells/OR3_PMOS.png used on input line 373.
+Package pdftex.def Info: final_cells/OR3_PMOS.png used on input line 571.
 (pdftex.def)             Requested size: 199.16928pt x 191.6025pt.
 
-<final_cells/OR3_NMOS.png, id=80, 570.13pt x 366.36874pt>
+<final_cells/OR3_NMOS.png, id=90, 570.13pt x 366.36874pt>
 File: final_cells/OR3_NMOS.png Graphic file (type png)
 
 <use final_cells/OR3_NMOS.png>
-Package pdftex.def Info: final_cells/OR3_NMOS.png used on input line 376.
+Package pdftex.def Info: final_cells/OR3_NMOS.png used on input line 574.
 (pdftex.def)             Requested size: 199.16928pt x 127.985pt.
 
-<final_cells/OR4_PMOS.png, id=81, 612.2875pt x 635.37375pt>
+<final_cells/OR4_PMOS.png, id=91, 612.2875pt x 635.37375pt>
 File: final_cells/OR4_PMOS.png Graphic file (type png)
 
 <use final_cells/OR4_PMOS.png>
-Package pdftex.def Info: final_cells/OR4_PMOS.png used on input line 386.
+Package pdftex.def Info: final_cells/OR4_PMOS.png used on input line 584.
 (pdftex.def)             Requested size: 199.16928pt x 206.67822pt.
 
-<final_cells/OR4_NMOS.png, id=82, 607.26875pt x 348.30125pt>
+<final_cells/OR4_NMOS.png, id=92, 607.26875pt x 348.30125pt>
 File: final_cells/OR4_NMOS.png Graphic file (type png)
 
 <use final_cells/OR4_NMOS.png>
-Package pdftex.def Info: final_cells/OR4_NMOS.png used on input line 389.
+Package pdftex.def Info: final_cells/OR4_NMOS.png used on input line 587.
 (pdftex.def)             Requested size: 199.16928pt x 114.23291pt.
- [8
+ [11
 
  <./final_cells/AND2_PMOS.png> <./final_cells/AND2_NMOS.png> <./final_cells/AND
 3_PMOS.png> <./final_cells/AND3_NMOS.png>]
-(./VLSI_paper.bbl) [9 <./final_cells/AND4_PMOS.png> <./final_cells/AND4_NMOS.pn
-g> <./final_cells/AOI21_PMOS.png> <./final_cells/AOI21_NMOS.png>] [10 <./final_
-cells/AOI22_PMOS.png> <./final_cells/AOI22_NMOS.png> <./final_cells/NAND2_PMOS.
-png> <./final_cells/NAND2_NMOS.png>] [11 <./final_cells/NAND3_PMOS.png> <./fina
-l_cells/NAND3_NMOS.png> <./final_cells/NAND4_PMOS.png> <./final_cells/NAND4_NMO
-S.png>] [12 <./final_cells/INV_PMOS.png> <./final_cells/INV_NMOS.png> <./final_
-cells/BUF_PMOS.png> <./final_cells/BUF_NMOS.png>] [13 <./final_cells/NOR2_PMOS.
-png> <./final_cells/NOR2_NMOS.png> <./final_cells/NOR3_PMOS.png> <./final_cells
-/NOR3_NMOS.png>] [14 <./final_cells/NOR4_PMOS.png> <./final_cells/NOR4_NMOS.png
-> <./final_cells/OAI21_PMOS.png> <./final_cells/OAI21_NMOS.png>] [15 <./final_c
-ells/OAI22_PMOS.png> <./final_cells/OAI22_NMOS.png> <./final_cells/OR2_PMOS.png
-> <./final_cells/OR2_NMOS.png>] [16 <./final_cells/OR3_PMOS.png> <./final_cells
-/OR3_NMOS.png> <./final_cells/OR4_PMOS.png> <./final_cells/OR4_NMOS.png>]
-(./VLSI_paper.aux) ) 
+[12 <./final_cells/AND4_PMOS.png> <./final_cells/AND4_NMOS.png> <./final_cells/
+AOI21_PMOS.png> <./final_cells/AOI21_NMOS.png> <./final_cells/AOI22_PMOS.png> <
+./final_cells/AOI22_NMOS.png>] [13 <./final_cells/NAND2_PMOS.png> <./final_cell
+s/NAND2_NMOS.png> <./final_cells/NAND3_PMOS.png> <./final_cells/NAND3_NMOS.png>
+] [14 <./final_cells/NAND4_PMOS.png> <./final_cells/NAND4_NMOS.png> <./final_ce
+lls/INV_PMOS.png> <./final_cells/INV_NMOS.png>] [15 <./final_cells/BUF_PMOS.png
+> <./final_cells/BUF_NMOS.png> <./final_cells/NOR2_PMOS.png> <./final_cells/NOR
+2_NMOS.png>] [16 <./final_cells/NOR3_PMOS.png> <./final_cells/NOR3_NMOS.png> <.
+/final_cells/NOR4_PMOS.png> <./final_cells/NOR4_NMOS.png>] [17 <./final_cells/O
+AI21_PMOS.png> <./final_cells/OAI21_NMOS.png> <./final_cells/OAI22_PMOS.png> <.
+/final_cells/OAI22_NMOS.png>] [18 <./final_cells/OR2_PMOS.png> <./final_cells/O
+R2_NMOS.png> <./final_cells/OR3_PMOS.png> <./final_cells/OR3_NMOS.png>]
+[19 <./final_cells/OR4_PMOS.png> <./final_cells/OR4_NMOS.png>]
+(./VLSI_paper.bbl) [20
+
+] (./VLSI_paper.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3557 strings out of 495028
- 56167 string characters out of 6181497
- 122520 words of memory out of 5000000
- 6691 multiletter control sequences out of 15000+600000
- 8588 words of font info for 30 fonts, out of 8000000 for 9000
+ 3568 strings out of 495028
+ 56327 string characters out of 6181497
+ 128696 words of memory out of 5000000
+ 6701 multiletter control sequences out of 15000+600000
+ 8756 words of font info for 31 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 42i,8n,44p,1142b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
-x12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on VLSI_paper.pdf (16 pages, 669720 bytes).
+ 42i,9n,44p,1142b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmtt10.pfb>
+Output written on VLSI_paper.pdf (20 pages, 694018 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 156 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  216 words of extra memory for PDF output out of 10000 (max. 10000000)
 
